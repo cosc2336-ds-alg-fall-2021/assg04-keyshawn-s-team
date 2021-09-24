@@ -174,56 +174,55 @@ TEST_CASE("<List> test of List user defined type for this assignment", "[task0]"
  * 5. Iterate your solution by making small implementations to pass
  *    tests 1 or 2 at a time until you are passing all of the tests.
  */
-/* Uncomment Task 1 test case to begin working on it.
-   TEST_CASE("<sumIterative> function tests",
-    "[task1]")
-   {
-   // test sum of an empty list
-   List l0;
-   CHECK( sumIterative(l0, 0, -1) == 0 );
 
-   // test sum of a list of only 1 item
-   int values1[] = {5};
-   List l1(1, values1);
-   CHECK( sumIterative(l1, 0, 0) == 5 );
+TEST_CASE("<sumIterative> function tests", "[task1]")
+{
+  librecursion lib;
+  // test sum of an empty list
+  List l0;
+  CHECK(lib.sumIterative(l0, 0, -1) == 0);
 
-   // test sum of a bigger list
-   int values2[] = {3, 5, 7, 9, -3, -8, 2, 6, 1, 13};
-   List l2(10, values2);
-   CHECK( sumIterative(l2, 0, 9) == 35 );
-   CHECK( sumIterative(l2, 0, 0) == 3 );
-   CHECK( sumIterative(l2, 0, 3) == 24 );
-   CHECK( sumIterative(l2, 9, 9) == 13 );
-   CHECK( sumIterative(l2, 6, 9) == 22 );
-   CHECK( sumIterative(l2, 2, 5) == 5 );
+  // test sum of a list of only 1 item
+  int values1[] = {5};
+  List l1(1, values1);
+  CHECK(lib.sumIterative(l1, 0, 0) == 5);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumIterative(l2, 0, 10), ListMemoryBoundsException);
+  // test sum of a bigger list
+  int values2[] = {3, 5, 7, 9, -3, -8, 2, 6, 1, 13};
+  List l2(10, values2);
+  CHECK(lib.sumIterative(l2, 0, 9) == 35);
+  CHECK(lib.sumIterative(l2, 0, 0) == 3);
+  CHECK(lib.sumIterative(l2, 0, 3) == 24);
+  CHECK(lib.sumIterative(l2, 9, 9) == 13);
+  CHECK(lib.sumIterative(l2, 6, 9) == 22);
+  CHECK(lib.sumIterative(l2, 2, 5) == 5);
 
-   // test sum of a list that sums to 0
-   int values3[] = {3, 5, 7, 9, -3, -5, -7, -9, -1, 1};
-   List l3(10, values3);
-   CHECK( sumIterative(l3, 0, 9) == 0 );
-   CHECK( sumIterative(l3, 0, 7) == 0 );
-   CHECK( sumIterative(l3, 8, 9) == 0 );
-   CHECK( sumIterative(l3, 1, 7) + 3 == 0 );
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumIterative(l2, 0, 10), ListMemoryBoundsException);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumIterative(l3, -1, 5), ListMemoryBoundsException);
+  // test sum of a list that sums to 0
+  int values3[] = {3, 5, 7, 9, -3, -5, -7, -9, -1, 1};
+  List l3(10, values3);
+  CHECK(lib.sumIterative(l3, 0, 9) == 0);
+  CHECK(lib.sumIterative(l3, 0, 7) == 0);
+  CHECK(lib.sumIterative(l3, 8, 9) == 0);
+  CHECK(lib.sumIterative(l3, 1, 7) + 3 == 0);
 
-   // test big negative sum
-   int values4[] = {-20, -50, -30, -100, -5000};
-   List l4(5, values4);
-   CHECK( sumIterative(l4, 0, 4) == -5200 );
-   CHECK( sumIterative(l4, 1, 1) == -50 );
-   CHECK( sumIterative(l4, 3, 3) == -100 );
-   CHECK( sumIterative(l4, 0, 2) == -100 );
-   CHECK( sumIterative(l4, 2, 4) == -5130 );
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumIterative(l3, -1, 5), ListMemoryBoundsException);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumIterative(l4, -1, 5), ListMemoryBoundsException);
-   }
- */
+  // test big negative sum
+  int values4[] = {-20, -50, -30, -100, -5000};
+  List l4(5, values4);
+  CHECK(lib.sumIterative(l4, 0, 4) == -5200);
+  CHECK(lib.sumIterative(l4, 1, 1) == -50);
+  CHECK(lib.sumIterative(l4, 3, 3) == -100);
+  CHECK(lib.sumIterative(l4, 0, 2) == -100);
+  CHECK(lib.sumIterative(l4, 2, 4) == -5130);
+
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumIterative(l4, -1, 5), ListMemoryBoundsException);
+}
 
 /** Task 2: implement a recursive version of summing an array of
  * integer values.  Notice all results of recursion should get the

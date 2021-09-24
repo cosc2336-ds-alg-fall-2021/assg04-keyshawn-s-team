@@ -33,4 +33,19 @@ using namespace std;
 // of your functions should be put into the corresponding [x.cpp]
 // source implementation file.
 
+/** @class librecursion
+ * @brief A library class for recursive functiobs for the assignment.
+ *
+ * A simple class that allows us to define and calculate values
+ * using iterative and recurive member functions.
+ */
+class librecursion
+{
+public:
+  // constructors and destructors
+  librecursion();  // default constructor
+  ~librecursion(); // destructo
+  // Iterative functions
+  int sumIterative(List& values, int begin, int end) const;
+};
 #endif // _LIBRECURSION_HPP_
