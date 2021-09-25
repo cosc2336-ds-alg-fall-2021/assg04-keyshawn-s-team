@@ -118,3 +118,41 @@ void librecursion::reverseIterative(List& list, int begin, int end)
     list[j] = temp;
   }
 }
+/** reverseRecursive member function
+ * Provide a way to reverse of values of provided list by using recursive approach.
+ * It swaps the ending index value with starting index
+ * and recall itself by decrementing ending index and incrementing starting index..
+ * This function does not return any value.
+ *
+ * @param values The List of Integer
+ *
+ * @param begin The starting index of the list to read the values from.
+ *
+ * @param end The ending index of the list to read the values until reached to that index
+ *
+ * @returns it does not return any value so its type is void
+ *
+ */
+void librecursion::reverseRecursive(List& list, int begin, int end)
+{
+  if (begin == end)
+  {
+    return;
+  }
+  else
+  {
+    int temp = 0;
+    if (begin < end)
+    {
+
+      /* Swap the position of an element. */
+      temp = list[begin];
+      list[begin] = list[end];
+      list[end] = temp;
+      /*calling itself
+       *Incrementing start and decrementing end
+       */
+      reverseRecursive(list, begin + 1, end - 1);
+    }
+  }
+}

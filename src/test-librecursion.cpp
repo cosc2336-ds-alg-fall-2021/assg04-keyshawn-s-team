@@ -336,58 +336,56 @@ TEST_CASE("<reverseIterative> function tests", "[task3]")
  * implementation, both should give the same result for reversing the
  * sublist of values.
  */
-/* Uncomment Task 4 test case to begin working on it.
-   TEST_CASE("<reverseRecursive> function tests",
-    "[task4]")
-   {
-   // check reverse of empty list doesn't croak
-   List l1;
-   reverseRecursive(l1, 0, -1);
-   CHECK( l1.str() == "<list> size: 0 [ ]" );
+TEST_CASE("<reverseRecursive> function tests", "[task4]")
+{
+  librecursion lib;
+  // check reverse of empty list doesn't croak
+  List l1;
+  lib.reverseRecursive(l1, 0, -1);
+  CHECK(l1.str() == "<list> size: 0 [ ]");
 
-   // check reverse of list of size 1 (base case)
-   int values2[] = {42};
-   List l2(1, values2);
-   reverseRecursive(l2, 0, 0);
-   CHECK( l2.str() == "<list> size: 1 [ 42 ]" );
+  // check reverse of list of size 1 (base case)
+  int values2[] = {42};
+  List l2(1, values2);
+  lib.reverseRecursive(l2, 0, 0);
+  CHECK(l2.str() == "<list> size: 1 [ 42 ]");
 
-   // check reverse of odd sized list
-   int values3[] = {1, 2, 3};
-   List l3(3, values3);
-   reverseRecursive(l3, 0, 2);
-   CHECK( l3.str() == "<list> size: 3 [ 3 2 1 ]" );
+  // check reverse of odd sized list
+  int values3[] = {1, 2, 3};
+  List l3(3, values3);
+  lib.reverseRecursive(l3, 0, 2);
+  CHECK(l3.str() == "<list> size: 3 [ 3 2 1 ]");
 
-   // check reverse of even sized list
-   int values4[] = {1, 2};
-   List l4(2, values4);
-   reverseRecursive(l4, 0, 1);
-   CHECK( l4.str() == "<list> size: 2 [ 2 1 ]" );
+  // check reverse of even sized list
+  int values4[] = {1, 2};
+  List l4(2, values4);
+  lib.reverseRecursive(l4, 0, 1);
+  CHECK(l4.str() == "<list> size: 2 [ 2 1 ]");
 
-   // check reverse of bigger list
-   int values5[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-   List l5(10, values5);
-   reverseRecursive(l5, 0, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 10 9 8 7 6 5 4 3 2 1 ]" );
+  // check reverse of bigger list
+  int values5[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  List l5(10, values5);
+  lib.reverseRecursive(l5, 0, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 10 9 8 7 6 5 4 3 2 1 ]");
 
-   // reverse it back to original order
-   reverseRecursive(l5, 0, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 1 2 3 4 5 6 7 8 9 10 ]" );
+  // reverse it back to original order
+  lib.reverseRecursive(l5, 0, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 1 2 3 4 5 6 7 8 9 10 ]");
 
-   // test reversing sub parts of the list
-   reverseRecursive(l5, 0, 1);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 3 4 5 6 7 8 9 10 ]" );
-   reverseRecursive(l5, 2, 4);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 5 4 3 6 7 8 9 10 ]" );
-   reverseRecursive(l5, 5, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 5 4 3 10 9 8 7 6 ]" );
-   reverseRecursive(l5, 2, 7);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 8 9 10 3 4 5 7 6 ]" );
+  // test reversing sub parts of the list
+  lib.reverseRecursive(l5, 0, 1);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 3 4 5 6 7 8 9 10 ]");
+  lib.reverseRecursive(l5, 2, 4);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 5 4 3 6 7 8 9 10 ]");
+  lib.reverseRecursive(l5, 5, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 5 4 3 10 9 8 7 6 ]");
+  lib.reverseRecursive(l5, 2, 7);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 8 9 10 3 4 5 7 6 ]");
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( reverseRecursive(l5, -1, 5), ListMemoryBoundsException);
-   CHECK_THROWS_AS( reverseRecursive(l5, 0, 10), ListMemoryBoundsException);
-   }
- */
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.reverseRecursive(l5, -1, 5), ListMemoryBoundsException);
+  CHECK_THROWS_AS(lib.reverseRecursive(l5, 0, 10), ListMemoryBoundsException);
+}
 
 /** Task 5: implement function to test if a list is a palindrome
  * by reusing one of your reverseX() functions.
