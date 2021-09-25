@@ -47,5 +47,6 @@ public:
   ~librecursion(); // destructo
   // Iterative functions
   int sumIterative(List& values, int begin, int end) const;
+  int sumRecursive(List& values, int begin, int end);
 };
 #endif // _LIBRECURSION_HPP_

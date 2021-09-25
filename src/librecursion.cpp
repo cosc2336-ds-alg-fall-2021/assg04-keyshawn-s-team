@@ -60,3 +60,36 @@ int librecursion::sumIterative(List& values, int begin, int end) const
   }
   return sum;
 }
+/** sumIterative member function
+ * Provide a way to calculate sum of values without changing any data in the list,
+ * It reads the provided list of integers, read between the parameters of indeces,
+ * calulate the sum value for those integers and return that value.
+ *
+ * @param values The List of Integer
+ *
+ * @param begin The starting index of the list to read the values from.
+ *
+ * @param end The ending index of the list to read the values until reached to that index
+ *
+ * @returns int Returns calculated sum value
+ *
+ */
+int librecursion::sumRecursive(List& list, int begin, int end)
+{
+  if (begin == end)
+  {
+    return list[begin];
+  }
+  else
+  {
+    if (list.getSize() == 0)
+      return 0;
+    else if (list.getSize() == 1)
+      return list[begin];
+    else
+    {
+      begin = begin + 1;
+      return list[begin - 1] + sumRecursive(list, begin, end);
+    }
+  }
+}

@@ -228,56 +228,54 @@ TEST_CASE("<sumIterative> function tests", "[task1]")
  * integer values.  Notice all results of recursion should get the
  * same result as the iterative approach.
  */
-/* Uncomment Task 2 test case to begin working on it.
-   TEST_CASE("<sumRecusrive> function tests",
-    "[task2]")
-   {
-   // test sum of an empty list
-   List l0;
-   CHECK( sumRecursive(l0, 0, -1) == 0 );
+TEST_CASE("<sumRecusrive> function tests", "[task2]")
+{
+  librecursion lib;
+  // test sum of an empty list
+  List l0;
+  CHECK(lib.sumRecursive(l0, 0, -1) == 0);
 
-   // test sum of a list of only 1 item
-   int values1[] = {5};
-   List l1(1, values1);
-   CHECK( sumRecursive(l1, 0, 0) == 5 );
+  // test sum of a list of only 1 item
+  int values1[] = {5};
+  List l1(1, values1);
+  CHECK(lib.sumRecursive(l1, 0, 0) == 5);
 
-   // test sum of a bigger list
-   int values2[] = {3, 5, 7, 9, -3, -8, 2, 6, 1, 13};
-   List l2(10, values2);
-   CHECK( sumRecursive(l2, 0, 9) == 35 );
-   CHECK( sumRecursive(l2, 0, 0) == 3 );
-   CHECK( sumRecursive(l2, 0, 3) == 24 );
-   CHECK( sumRecursive(l2, 9, 9) == 13 );
-   CHECK( sumRecursive(l2, 6, 9) == 22 );
-   CHECK( sumRecursive(l2, 2, 5) == 5 );
+  // test sum of a bigger list
+  int values2[] = {3, 5, 7, 9, -3, -8, 2, 6, 1, 13};
+  List l2(10, values2);
+  CHECK(lib.sumRecursive(l2, 0, 9) == 35);
+  CHECK(lib.sumRecursive(l2, 0, 0) == 3);
+  CHECK(lib.sumRecursive(l2, 0, 3) == 24);
+  CHECK(lib.sumRecursive(l2, 9, 9) == 13);
+  CHECK(lib.sumRecursive(l2, 6, 9) == 22);
+  CHECK(lib.sumRecursive(l2, 2, 5) == 5);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumRecursive(l2, 0, 10), ListMemoryBoundsException);
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumRecursive(l2, 0, 10), ListMemoryBoundsException);
 
-   // test sum of a list that sums to 0
-   int values3[] = {3, 5, 7, 9, -3, -5, -7, -9, -1, 1};
-   List l3(10, values3);
-   CHECK( sumRecursive(l3, 0, 9) == 0 );
-   CHECK( sumRecursive(l3, 0, 7) == 0 );
-   CHECK( sumRecursive(l3, 8, 9) == 0 );
-   CHECK( sumRecursive(l3, 1, 7) + 3 == 0 );
+  // test sum of a list that sums to 0
+  int values3[] = {3, 5, 7, 9, -3, -5, -7, -9, -1, 1};
+  List l3(10, values3);
+  CHECK(lib.sumRecursive(l3, 0, 9) == 0);
+  CHECK(lib.sumRecursive(l3, 0, 7) == 0);
+  CHECK(lib.sumRecursive(l3, 8, 9) == 0);
+  CHECK(lib.sumRecursive(l3, 1, 7) + 3 == 0);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumRecursive(l3, -1, 5), ListMemoryBoundsException);
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumRecursive(l3, -1, 5), ListMemoryBoundsException);
 
-   // test big negative sum
-   int values4[] = {-20, -50, -30, -100, -5000};
-   List l4(5, values4);
-   CHECK( sumRecursive(l4, 0, 4) == -5200 );
-   CHECK( sumRecursive(l4, 1, 1) == -50 );
-   CHECK( sumRecursive(l4, 3, 3) == -100 );
-   CHECK( sumRecursive(l4, 0, 2) == -100 );
-   CHECK( sumRecursive(l4, 2, 4) == -5130 );
+  // test big negative sum
+  int values4[] = {-20, -50, -30, -100, -5000};
+  List l4(5, values4);
+  CHECK(lib.sumRecursive(l4, 0, 4) == -5200);
+  CHECK(lib.sumRecursive(l4, 1, 1) == -50);
+  CHECK(lib.sumRecursive(l4, 3, 3) == -100);
+  CHECK(lib.sumRecursive(l4, 0, 2) == -100);
+  CHECK(lib.sumRecursive(l4, 2, 4) == -5130);
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( sumRecursive(l4, -1, 5), ListMemoryBoundsException);
-   }
- */
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.sumRecursive(l4, -1, 5), ListMemoryBoundsException);
+}
 
 /** Task 3: implement an iterative version of reversing the elements
  * of a List.
