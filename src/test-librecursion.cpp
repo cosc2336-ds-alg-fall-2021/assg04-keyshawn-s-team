@@ -280,58 +280,56 @@ TEST_CASE("<sumRecusrive> function tests", "[task2]")
 /** Task 3: implement an iterative version of reversing the elements
  * of a List.
  */
-/* Uncomment Task 3 test case to begin working on it.
-   TEST_CASE("<reverseIterative> function tests",
-    "[task3]")
-   {
-   // check reverse of empty list doesn't croak
-   List l1;
-   reverseIterative(l1, 0, -1);
-   CHECK( l1.str() == "<list> size: 0 [ ]" );
+TEST_CASE("<reverseIterative> function tests", "[task3]")
+{
+  librecursion lib;
+  // check reverse of empty list doesn't croak
+  List l1;
+  lib.reverseIterative(l1, 0, -1);
+  CHECK(l1.str() == "<list> size: 0 [ ]");
 
-   // check reverse of list of size 1 (base case)
-   int values2[] = {42};
-   List l2(1, values2);
-   reverseIterative(l2, 0, 0);
-   CHECK( l2.str() == "<list> size: 1 [ 42 ]" );
+  // check reverse of list of size 1 (base case)
+  int values2[] = {42};
+  List l2(1, values2);
+  lib.reverseIterative(l2, 0, 0);
+  CHECK(l2.str() == "<list> size: 1 [ 42 ]");
 
-   // check reverse of odd sized list
-   int values3[] = {1, 2, 3};
-   List l3(3, values3);
-   reverseIterative(l3, 0, 2);
-   CHECK( l3.str() == "<list> size: 3 [ 3 2 1 ]" );
+  // check reverse of odd sized list
+  int values3[] = {1, 2, 3};
+  List l3(3, values3);
+  lib.reverseIterative(l3, 0, 2);
+  CHECK(l3.str() == "<list> size: 3 [ 3 2 1 ]");
 
-   // check reverse of even sized list
-   int values4[] = {1, 2};
-   List l4(2, values4);
-   reverseIterative(l4, 0, 1);
-   CHECK( l4.str() == "<list> size: 2 [ 2 1 ]" );
+  // check reverse of even sized list
+  int values4[] = {1, 2};
+  List l4(2, values4);
+  lib.reverseIterative(l4, 0, 1);
+  CHECK(l4.str() == "<list> size: 2 [ 2 1 ]");
 
-   // check reverse of bigger list
-   int values5[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-   List l5(10, values5);
-   reverseIterative(l5, 0, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 10 9 8 7 6 5 4 3 2 1 ]" );
+  // check reverse of bigger list
+  int values5[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  List l5(10, values5);
+  lib.reverseIterative(l5, 0, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 10 9 8 7 6 5 4 3 2 1 ]");
 
-   // reverse it back to original order
-   reverseIterative(l5, 0, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 1 2 3 4 5 6 7 8 9 10 ]" );
+  // reverse it back to original order
+  lib.reverseIterative(l5, 0, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 1 2 3 4 5 6 7 8 9 10 ]");
 
-   // test reversing sub parts of the list
-   reverseIterative(l5, 0, 1);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 3 4 5 6 7 8 9 10 ]" );
-   reverseIterative(l5, 2, 4);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 5 4 3 6 7 8 9 10 ]" );
-   reverseIterative(l5, 5, 9);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 5 4 3 10 9 8 7 6 ]" );
-   reverseIterative(l5, 2, 7);
-   CHECK( l5.str() == "<list> size: 10 [ 2 1 8 9 10 3 4 5 7 6 ]" );
+  // test reversing sub parts of the list
+  lib.reverseIterative(l5, 0, 1);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 3 4 5 6 7 8 9 10 ]");
+  lib.reverseIterative(l5, 2, 4);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 5 4 3 6 7 8 9 10 ]");
+  lib.reverseIterative(l5, 5, 9);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 5 4 3 10 9 8 7 6 ]");
+  lib.reverseIterative(l5, 2, 7);
+  CHECK(l5.str() == "<list> size: 10 [ 2 1 8 9 10 3 4 5 7 6 ]");
 
-   // check bounds checking is working
-   CHECK_THROWS_AS( reverseIterative(l5, -1, 5), ListMemoryBoundsException);
-   CHECK_THROWS_AS( reverseIterative(l5, 0, 10), ListMemoryBoundsException);
-   }
- */
+  // check bounds checking is working
+  CHECK_THROWS_AS(lib.reverseIterative(l5, -1, 5), ListMemoryBoundsException);
+  CHECK_THROWS_AS(lib.reverseIterative(l5, 0, 10), ListMemoryBoundsException);
+}
 
 /** Task 4: implement a recursive version of reversing the elements
  * of a List.  Notice that all tests are the same as the iterative

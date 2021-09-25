@@ -60,9 +60,9 @@ int librecursion::sumIterative(List& values, int begin, int end) const
   }
   return sum;
 }
-/** sumIterative member function
- * Provide a way to calculate sum of values without changing any data in the list,
- * It reads the provided list of integers, read between the parameters of indeces,
+/** sumRecursive member function
+ * Provide a way to calculate sum of values by using recursive approach.
+ * It breaks the whole sum into a small piece and then recursively recall itself for all values,
  * calulate the sum value for those integers and return that value.
  *
  * @param values The List of Integer
@@ -91,5 +91,30 @@ int librecursion::sumRecursive(List& list, int begin, int end)
       begin = begin + 1;
       return list[begin - 1] + sumRecursive(list, begin, end);
     }
+  }
+}
+/** reverseIterative member function
+ * Provide a way to reverse of values of provided list by using iterative approach.
+ * It uses a for loop and reverse the values inside list by swaping.
+ * This function does not return any value.
+ *
+ * @param values The List of Integer
+ *
+ * @param begin The starting index of the list to read the values from.
+ *
+ * @param end The ending index of the list to read the values until reached to that index
+ *
+ * @returns it does not return any value so its type is void
+ *
+ */
+void librecursion::reverseIterative(List& list, int begin, int end)
+{
+  int temp = 0;
+  int j = end;
+  for (int i = begin; i < j; i++, j--)
+  {
+    temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
   }
 }
