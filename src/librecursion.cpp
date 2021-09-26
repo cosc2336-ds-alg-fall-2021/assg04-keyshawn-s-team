@@ -159,8 +159,9 @@ void librecursion::reverseRecursive(List& list, int begin, int end)
 /** isPalindromeIterative member function
  * Provide a way to check that the list of integers is plaindrom pattren
  * or not by using iterative approach.
- * It uses a for loop and reverse the values inside list by swaping.
- * This function does not return any value.
+ * It reusing reverse member function on a copy of list and the recomparing it with original list,
+ * if lists are still same then it is plaindrome otherwise not.
+ * This function return boolean value.
  *
  * @param values The List of Integer
  *
@@ -179,4 +180,39 @@ bool librecursion::isPalindromeIterative(List list, int begin, int end)
     return true;
   else
     return false;
+}
+/** isPalindromeRecursive member function
+ * Provide a way to check that the list of integers is plaindrom
+ * or not by using recursive approach.
+ * It recalls itself and compare values from staring and ending indeces.
+ * If values does not match then return false else true.
+ * This function returns boolean value indicating list is plaindrom or not.
+ *
+ * @param values The List of Integer
+ *
+ * @param begin The starting index of the list to read the values from.
+ *
+ * @param end The ending index of the list to read the values until reached to that index
+ *
+ * @returns it returns a boolean value which indicates that the list is plaindrom or not
+ *
+ */
+bool librecursion::isPalindromeRecursive(List list, int begin, int end)
+{
+  if (list.getSize() <= 1)
+    return true;
+  else
+  {
+    if (begin < end)
+    {
+      if (list[begin] != list[end])
+        return false;
+      else
+      {
+        return isPalindromeRecursive(list, begin + 1, end - 1);
+      }
+    }
+    else
+      return true;
+  }
 }

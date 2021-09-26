@@ -51,5 +51,6 @@ public:
   void reverseIterative(List& values, int begin, int end);
   void reverseRecursive(List& values, int begin, int end);
   bool isPalindromeIterative(List values, int begin, int end);
+  bool isPalindromeRecursive(List values, int begin, int end);
 };
 #endif // _LIBRECURSION_HPP_
