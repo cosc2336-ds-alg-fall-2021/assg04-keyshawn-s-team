@@ -33,4 +33,18 @@ using namespace std;
 // of your functions should be put into the corresponding [x.cpp]
 // source implementation file.
 
+/** @class librecursion
+ * @brief A library class for recursive functiobs for the assignment.
+ *
+ * A simple class that allows us to define and calculate values
+ * using iterative and recurive member functions.
+ */
+// Iterative functions
+int sumIterative(List& values, int begin, int end);
+int sumRecursive(List& values, int begin, int end);
+void reverseIterative(List& values, int begin, int end);
+void reverseRecursive(List& values, int begin, int end);
+bool isPalindromeIterative(List values, int begin, int end);
+bool isPalindromeRecursive(List values, int begin, int end);
+
 #endif // _LIBRECURSION_HPP_
