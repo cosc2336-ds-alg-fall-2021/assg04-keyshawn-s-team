@@ -39,18 +39,12 @@ using namespace std;
  * A simple class that allows us to define and calculate values
  * using iterative and recurive member functions.
  */
-class librecursion
-{
-public:
-  // constructors and destructors
-  librecursion();  // default constructor
-  ~librecursion(); // destructo
-  // Iterative functions
-  int sumIterative(List& values, int begin, int end) const;
-  int sumRecursive(List& values, int begin, int end);
-  void reverseIterative(List& values, int begin, int end);
-  void reverseRecursive(List& values, int begin, int end);
-  bool isPalindromeIterative(List values, int begin, int end);
-  bool isPalindromeRecursive(List values, int begin, int end);
-};
+// Iterative functions
+int sumIterative(List& values, int begin, int end);
+int sumRecursive(List& values, int begin, int end);
+void reverseIterative(List& values, int begin, int end);
+void reverseRecursive(List& values, int begin, int end);
+bool isPalindromeIterative(List values, int begin, int end);
+bool isPalindromeRecursive(List values, int begin, int end);
+
 #endif // _LIBRECURSION_HPP_

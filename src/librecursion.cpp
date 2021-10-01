@@ -27,16 +27,6 @@
 // documenting parameters and return value using @param and @returns
 // tags respectively.
 
-/** default constructor
- * it is often required to have a default
- * constructor for various reasons by the C++ language.
- */
-librecursion::librecursion() {}
-/** destructor
- * Destructor for the librecursion class.
- * Free up this block on destruction of a librecursion instance.
- */
-librecursion ::~librecursion() {}
 /** sumIterative member function
  * Provide a way to calculate sum of values without changing any data in the list,
  * It reads the provided list of integers, read between the parameters of indeces,
@@ -51,7 +41,7 @@ librecursion ::~librecursion() {}
  * @returns int Returns calculated sum value
  *
  */
-int librecursion::sumIterative(List& values, int begin, int end) const
+int sumIterative(List& values, int begin, int end)
 {
   int sum = 0;
   for (int i = begin; i <= end; i++)
@@ -74,7 +64,7 @@ int librecursion::sumIterative(List& values, int begin, int end) const
  * @returns int Returns calculated sum value
  *
  */
-int librecursion::sumRecursive(List& list, int begin, int end)
+int sumRecursive(List& list, int begin, int end)
 {
   if (begin == end)
   {
@@ -107,7 +97,7 @@ int librecursion::sumRecursive(List& list, int begin, int end)
  * @returns it does not return any value so its type is void
  *
  */
-void librecursion::reverseIterative(List& list, int begin, int end)
+void reverseIterative(List& list, int begin, int end)
 {
   int temp = 0;
   int j = end;
@@ -133,7 +123,7 @@ void librecursion::reverseIterative(List& list, int begin, int end)
  * @returns it does not return any value so its type is void
  *
  */
-void librecursion::reverseRecursive(List& list, int begin, int end)
+void reverseRecursive(List& list, int begin, int end)
 {
   if (begin == end)
   {
@@ -172,7 +162,7 @@ void librecursion::reverseRecursive(List& list, int begin, int end)
  * @returns it returns a boolean value which indicates that the list is plaindrom or not
  *
  */
-bool librecursion::isPalindromeIterative(List list, int begin, int end)
+bool isPalindromeIterative(List list, int begin, int end)
 {
   List copy = list;
   reverseIterative(copy, begin, end);
@@ -197,7 +187,7 @@ bool librecursion::isPalindromeIterative(List list, int begin, int end)
  * @returns it returns a boolean value which indicates that the list is plaindrom or not
  *
  */
-bool librecursion::isPalindromeRecursive(List list, int begin, int end)
+bool isPalindromeRecursive(List list, int begin, int end)
 {
   if (list.getSize() <= 1)
     return true;
